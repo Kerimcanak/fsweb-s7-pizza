@@ -65,12 +65,13 @@ Proje iki zorluk aşamalı,
 - [Y] Forklayarak bir kopya oluşturun
 - [Y] Forku klonlayın
 - [Y] Main branch üzerinde çalışın
-- [ ] Comitinizi pushlayın: `git push origin main`
+- [Y] Comitinizi pushlayın: `git push origin main`
 - [ ] Farklı paketler kullanmaya çalışın.
   - `axios`
   - `react-strap`
   - `toastify`
   - `tailwindcss` (düz css oturduysa)
+  - `styled components`
   - `cypress.io` v.b.
 
 ### Görev 2: Iterasyon 1 - (IT1) Proje Planını, UI Tasarımı ve Diğer Tasarım Öğelerini İncelemek
