@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg';
 import workintech from '/workintech.svg';
 import './App.css';
 import Header from './assets/homePage/header';
+import homeBanner from './assets/homePage/home-banner.png';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,42 +25,44 @@ function App() {
   }, []);
 
   return (
-    <div style={{
+    <div className="App" style={{
+      backgroundImage: `url(${homeBanner})`,
+      backgroundSize: '100% 100%', // Cover the entire container
+      backgroundPosition: 'center top', // Center the background image
+      height: '100vh',
+      width: '100vw',
+      margin: 0,
+      padding: 0,
       display: 'flex',
       flexDirection: 'column',
-      minHeight: '100vh',
-      padding: '2rem'
+      alignItems: 'center',
+      justifyContent: 'center',
     }}>
-      <Header>{headerValue}</Header>
+      <Header></Header>
       <div style={{
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        padding: '6em 0',
       }}>
-        <a href="https://github.com/Workintech/fsweb-s7-challenge-pizza"
-          target="_blank">
-          <img src={workintech} className="logo" alt="Workintech logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+          padding: '2em 0',
+        }}>
+          <h2>Kod acıktırır, pizza doyurur</h2>
+        </div>
+        <div className="card">
+          <button onClick={() => setCount(count + 1)}>
+            Absolute Acı Pizza sayısı {count}
+          </button>
+        </div>
       </div>
-      <h1>Workintech + 🍕</h1>
-      <div className="card">
-        <button onClick={() => setCount(count + 1)}>
-          Absolute Acı Pizza sayısı {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Workintech or Pizza logos to learn more
-      </p>
     </div>
   );
 }
 
 export default App;
-

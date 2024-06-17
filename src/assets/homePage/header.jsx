@@ -1,21 +1,27 @@
 import React from 'react';
+import logo from './logo.svg';
 
-const Header = ({ headerValue }) => (
+/**
+ * Renders a header component with a logo.
+ *
+ * @return {JSX.Element} The header component.
+ */
+const Header = () => (
   <header style={{
     position: 'absolute',
-    top: 0,
+    top: '5em',
     left: 0,
     right: 0,
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '1em 2rem',
-    backgroundColor: 'red',
-    color: 'white',
+    justifyContent: 'center',
+    padding: '1em',
+    backgroundColor: 'c20608',
     margin: 0
   }}>
-    <h1 style={{ margin: 0, padding: 0 }}>Header Value: {headerValue}</h1>
+    <img src={logo} alt="logo" style={{ width: '500px', margin: '0 auto'}}/>
   </header>
 );
 
 export default Header;
+
+
