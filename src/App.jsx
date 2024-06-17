@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import reactLogo from './assets/react.svg';
-import workintech from '/workintech.svg';
 import './App.css';
 import Header from './assets/homePage/header';
 import homeBanner from './assets/homePage/home-banner.png';
@@ -14,8 +12,8 @@ function App() {
       try {
         const response = await fetch('https://api.example.com/data');
         const headers = response.headers;
-        const headerValue = headers.get('X-Custom-Header');
-        setHeaderValue(headerValue);
+        const headerValueFromResponse = headers.get('X-Custom-Header');
+        setHeaderValue(headerValueFromResponse);
       } catch (error) {
         setHeaderValue('Error: ' + error.message);
       }
@@ -25,10 +23,9 @@ function App() {
   }, []);
 
   return (
-    <div className="App" style={{
+    <div style={{
       backgroundImage: `url(${homeBanner})`,
-      backgroundSize: '100% 100%', // Cover the entire container
-      backgroundPosition: 'center top', // Center the background image
+      backgroundSize: 'cover',
       height: '100vh',
       width: '100vw',
       margin: 0,
@@ -38,31 +35,27 @@ function App() {
       alignItems: 'center',
       justifyContent: 'center',
     }}>
-      <Header></Header>
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        padding: '6em 0',
-      }}>
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column',
-          padding: '2em 0',
-        }}>
-          <h2>Kod acıktırır, pizza doyurur</h2>
-        </div>
-        <div className="card">
-          <button onClick={() => setCount(count + 1)}>
+      <Header style={{ position: 'absolute', top: '0em', left: 0, right: 0 }} />
+        <div className="card" style={{marginTop: '0vh'}}>
+            <h2 style={{ 
+              marginBottom: '0px', 
+              marginTop: '0vh', 
+              color: 'white', 
+              fontFamily: 'Arial Narrow, sans-serif', 
+              fontWeight: '100', 
+              fontSize: '47px' 
+            }}>
+              Kod acıktırır, pizza doyurur
+            </h2>       </div>
+        <div className="card" style={{marginTop: '10vh'}}>
+          <button onClick={() => setCount(count + 1)} style={{backgroundColor: 'yellow'}}>
             Absolute Acı Pizza sayısı {count}
           </button>
         </div>
-      </div>
     </div>
   );
 }
 
 export default App;
+
+

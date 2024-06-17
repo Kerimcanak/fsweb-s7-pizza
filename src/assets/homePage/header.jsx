@@ -18,7 +18,7 @@ const Header = () => (
     backgroundColor: 'c20608',
     margin: 0
   }}>
-    <img src={logo} alt="logo" style={{ width: '500px', margin: '0 auto'}}/>
+    <img src={logo} alt="logo" style={{ width: '400px', margin: '0 auto'}}/>
   </header>
 );
 

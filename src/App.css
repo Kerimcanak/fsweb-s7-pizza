@@ -28,6 +28,16 @@ body {
 
 .card {
   background-color: #c20608; /* Change this to red if needed */
+  margin: 0;
+  padding: 0;
+}
+
+.card h2 {
+  margin: 0;
+}
+
+header {
+  margin: 0;
 }
 
 /* Add any other styles you need for your application */
