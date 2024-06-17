@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import reactLogo from './assets/react.svg';
 import workintech from '/workintech.svg';
 import './App.css';
-import { updateSelectionOnFocus } from '@testing-library/user-event/dist/cjs/event/selection/updateSelectionOnFocus.js';
+import Header from './assets/homePage/header';
 
 function App() {
   const [count, setCount] = useState(0);
   const [headerValue, setHeaderValue] = useState('');
 
   useEffect(() => {
-    async function fetchData() {
+    const fetchData = async () => {
       try {
         const response = await fetch('https://api.example.com/data');
         const headers = response.headers;
@@ -18,7 +18,7 @@ function App() {
       } catch (error) {
         setHeaderValue('Error: ' + error.message);
       }
-    }
+    };
 
     fetchData();
   }, []);
@@ -30,21 +30,7 @@ function App() {
       minHeight: '100vh',
       padding: '2rem'
     }}>
-      <header style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        right: 0,
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1em 2rem',
-        backgroundColor: 'red',
-        color: 'white',
-        margin: 0
-      }}>
-        <h1 style={{ margin: 0, padding: 0 }}>Header Value: {headerValue}</h1>
-      </header>
+      <Header>{headerValue}</Header>
       <div style={{
         display: 'flex',
         justifyContent: 'center',
@@ -76,3 +62,4 @@ function App() {
 }
 
 export default App;
+
