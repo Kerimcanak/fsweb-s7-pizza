@@ -14,11 +14,11 @@ const Header = () => (
     right: 0,
     display: 'flex',
     justifyContent: 'center',
-    padding: '1em',
+    padding: '0em',
     backgroundColor: 'c20608',
     margin: 0
   }}>
-    <img src={logo} alt="logo" style={{ width: '400px', margin: '0 auto'}}/>
+    <img src={logo} alt="logo" style={{ width: '350px', margin: '0 auto'}}/>
   </header>
 );
 

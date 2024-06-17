@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Header from './assets/homePage/header';
 import homeBanner from './assets/homePage/home-banner.png';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -55,6 +56,12 @@ function App() {
     </div>
   );
 }
+
+<Router>
+  <Switch>
+    <Route exact path="/" component={App} />
+  </Switch>
+</Router>
 
 export default App;
 
