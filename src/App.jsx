@@ -38,8 +38,15 @@ function App() {
       <Header />
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
         <h2 style={{marginTop: '180px'}}>
-          Kod acıktırır, pizza doyurur
+          KOD ACIKTIRIR
+          <br/>
+          PIZZA, DOYURUR
         </h2>
+      </div>
+      <div style={{marginTop: '20px'}}>
+      <button className="yellow-button">
+        <span className="button-text-large">ACIKTIM</span>
+      </button>
       </div>
     </div>
   );

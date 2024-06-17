@@ -41,13 +41,29 @@ header {
 }
 
 h2 {
-  display: inline-block;
+  align-items: center;
+  justify-content: center;
   color: white;
-  transform: scale(.5, 1);
-  font-size: 5em; /* You can adjust the size as needed */
-  font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
-  font-stretch: ultra-expanded;
-  font-weight: 2;
+  font-size: 2.5em; /* You can adjust the size as needed */
+  font-family: sans-serif, "Roboto" Condensed;
+  font-weight: 300;
+  text-align: center;
+  transform: scaleY(1.6);
+}
+
+.yellow-button {
+  background-color: #fdc913;
+  border-radius: 40px;
+  padding: 25px 40px;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.button-text-large {
+  font-weight: bold;
+  font-size: 20px; /* You can adjust the font size as needed */
 }
 
 /* Add any other styles you need for your application */
