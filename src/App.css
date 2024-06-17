@@ -40,6 +40,16 @@ header {
   margin: 0;
 }
 
+h2 {
+  display: inline-block;
+  color: white;
+  transform: scale(.5, 1);
+  font-size: 5em; /* You can adjust the size as needed */
+  font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+  font-stretch: ultra-expanded;
+  font-weight: 2;
+}
+
 /* Add any other styles you need for your application */
 
 

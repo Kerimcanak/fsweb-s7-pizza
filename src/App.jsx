@@ -34,25 +34,13 @@ function App() {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      justifyContent: 'center',
     }}>
-      <Header style={{ position: 'absolute', top: '0em', left: 0, right: 0 }} />
-        <div className="card" style={{marginTop: '0vh'}}>
-            <h2 style={{ 
-              marginBottom: '0px', 
-              marginTop: '0vh', 
-              color: 'white', 
-              fontFamily: 'Arial Narrow, sans-serif', 
-              fontWeight: '100', 
-              fontSize: '47px' 
-            }}>
-              Kod acıktırır, pizza doyurur
-            </h2>       </div>
-        <div className="card" style={{marginTop: '10vh'}}>
-          <button onClick={() => setCount(count + 1)} style={{backgroundColor: 'yellow'}}>
-            Absolute Acı Pizza sayısı {count}
-          </button>
-        </div>
+      <Header />
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <h2 style={{marginTop: '180px'}}>
+          Kod acıktırır, pizza doyurur
+        </h2>
+      </div>
     </div>
   );
 }
