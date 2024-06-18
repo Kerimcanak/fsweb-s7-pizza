@@ -1,25 +1,22 @@
 import React from 'react';
 
 const HeaderTextMain = () => (
-  <div style={{
+  <header style={{
     position: 'absolute',
-    borderBottom: '10px solid #c20608',
-    top: '20%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    display: 'flex',
-    alignItems: 'left',
-    justifyContent: 'left',
+    top: '17%',
+    left: '0',
+    right: '0',
     textAlign: 'left',
     width: '100%',
-    paddingLeft: '60em',
     color: 'white',
     backgroundColor: '#c20608',
+    transform: 'translateY(-50%)',
   }}>
-    <b>Anasayfa</b> &nbsp;- Seçenekler - Sipariş Oluştur
-  </div>
+    <p>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Anasayfa</strong> - Seçenekler - Sipariş Oluştur
+    </p>
+  </header>
 );
 
 export default HeaderTextMain;
-
 
