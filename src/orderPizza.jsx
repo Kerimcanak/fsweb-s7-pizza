@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from './assets/homePage/header';
+import HeaderForm from './assets/pizzaForm/headerForm';
 
 const OrderPizza = () => {
     return (
       <div>
-        <Header/>
+        <HeaderForm/>
       </div>
     );
   }

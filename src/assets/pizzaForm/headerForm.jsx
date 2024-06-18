@@ -6,22 +6,22 @@ import logo from './logo.svg';
  *
  * @return {JSX.Element} The header component.
  */
-const Header = () => (
+const HeaderForm = () => (
   <header style={{
+    paddingTop: '50px',
+    paddingBottom: '25px',
     position: 'absolute',
-    top: '5em',
+    top: 0,
     left: 0,
     right: 0,
     display: 'flex',
     justifyContent: 'center',
     padding: '0em',
-    margin: 0
+    margin: 0,
+    backgroundColor: '#c20608'
   }}>
     <img src={logo} alt="logo" style={{ width: '350px', margin: '0 auto'}}/>
   </header>
 );
 
-export default Header;
-
-
-
+export default HeaderForm;
