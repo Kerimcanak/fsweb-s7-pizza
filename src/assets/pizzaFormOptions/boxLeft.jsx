@@ -1,21 +1,26 @@
 import React from 'react';
+import kart1 from './kart-1.png';
 
 const RoundedBoxWithImageAndText = ({ text }) => {
-  const imageUrl = 'https://picsum.photos/200';
-
   return (
     <div style={{
       borderRadius: '10px',
       border: '1px solid #ccc',
       padding: '10px',
-      width: '200px',
-      transform: 'translate(0px, 250px)'
+      height: '250px',
+      width: '250px',
+      transform: 'translate(0px, 250px)',
+      backgroundImage: `url(${kart1})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
     }}>
-      <img src={imageUrl} alt="Image" style={{ width: '100%', borderRadius: '10px 10px 0 0' }} />
-      <p style={{ textAlign: 'center', marginTop: '10px' }}>{text}</p>
+      <p style={{ textAlign: 'center', marginTop: '20px' }}>{text}</p>
     </div>
   );
 };
 
 export default RoundedBoxWithImageAndText;
+
+
 
