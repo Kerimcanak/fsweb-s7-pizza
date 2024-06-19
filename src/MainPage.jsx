@@ -13,7 +13,7 @@ function MainPage() {
   
     // After the animation is complete, navigate to the order-pizza page
     setTimeout(() => {
-      window.location.href = '/order-pizza'; // Use window.location.href to navigate
+      window.location.href = '/order-pizza/main'; // Use window.location.href to navigate
     }, 1000); // Adjust the animation duration as needed
   };
 
