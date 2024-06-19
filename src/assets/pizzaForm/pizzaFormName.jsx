@@ -3,6 +3,8 @@ import React, { useState } from "react";
 const PizzaFormName = () => {
   const [name, setName] = useState("");
   const [validName, setValidName] = useState(true);
+  //name is a state variable
+  //setname is a function to change the state
 
   const handleChange = (event) => {
     const inputName = event.target.value;
