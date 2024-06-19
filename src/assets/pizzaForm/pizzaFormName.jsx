@@ -2,16 +2,12 @@ import React, { useState } from "react";
 
 const PizzaFormName = () => {
   const [name, setName] = useState("");
-  const [validName, setValidName] = useState(false);
+  const [validName, setValidName] = useState(true);
 
   const handleChange = (event) => {
     const inputName = event.target.value;
     setName(inputName);
-    if (inputName.length < 3) {
-      setValidName(false);
-    } else {
-      setValidName(true);
-    }
+    setValidName(inputName.length >= 3);
   };
 
   const handleSubmit = (event) => {
@@ -19,27 +15,38 @@ const PizzaFormName = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label style={{ fontFamily: "Roboto Condensed" }}>İsim</label>
-      <br />
-      <input
-        type="text"
-        value={name}
-        onChange={handleChange}
-        style={{ fontFamily: "Roboto Condensed" }}
-      />
-      {!validName && (
-        <div style={{ color: "red", fontFamily: "Roboto Condensed" }}>
-          Isim en az üç harf olmalı
-        </div>
-      )}
-      {validName && (
-        <div style={{ color: "green", fontFamily: "Roboto Condensed" }}>
-          true - {name}
-        </div>
-      )}
-    </form>
+    <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}>
+      <form onSubmit={handleSubmit}>
+        <label style={{ 
+          fontFamily: "Roboto Condensed", 
+          fontSize: "24pt",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+          }}>İsim</label>
+        <br />
+        <input
+          type="text"
+          value={name}
+          onChange={handleChange}
+          style={{ 
+            fontFamily: "Roboto Condensed",
+            fontSize: "14pt",
+            height: "20px", // adjust the height to your liking
+            padding: "10px", // add some padding for better usability
+            width: "350px" // adjust the width to your liking 
+            }}
+        />
+        {!validName && name.length > 0 && (
+          <div style={{ color: "red", fontFamily: "Roboto Condensed" }}>
+            İsim en az üç harf olmalı
+          </div>
+        )}
+      </form>
+    </div>
   );
 };
 
 export default PizzaFormName;
+
+
