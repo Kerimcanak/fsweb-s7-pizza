@@ -6,6 +6,7 @@ import OrderPizzaOptions from './orderPizzaOptions';
 import OrderPizzaComplete from './orderPizzaComplete';
 import Success from './success';
 import OptionsPizza from './optionpages/optionsPizza';
+import OptionsBurger from './optionpages/optionsBurger';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/order-pizza/options" component={OrderPizzaOptions} />
       <Route path="/order-pizza/complete" component={OrderPizzaComplete} />
       <Route path="/order-pizza/complete/pizza" component={OptionsPizza} />
+      <Route path="/order-pizza/complete/burger" component={OptionsBurger} />
       <Route path="/success" component={Success} />
     </Router>
   );
