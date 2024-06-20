@@ -1,0 +1,30 @@
+.animate-success {
+    animation: fade-in-down 1s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in-down {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .animate-success-logo {
+    animation: fade-in-down-logo 1s ease-in-out forwards;
+  }
+  
+  @keyframes fade-in-down-logo {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  

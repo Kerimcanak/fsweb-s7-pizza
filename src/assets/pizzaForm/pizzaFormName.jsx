@@ -6,7 +6,7 @@ import User from "../user";
 // This component allows the user to enter their name and submit it to the server
 const PizzaFormName = () => {
   const [name, setName] = useState(User.name); // State to store the user's name
-  const [validName, setValidName] = useState(true); // State to indicate if the name is valid
+  const [validName, setValidName] = useState(false); // State to indicate if the name is valid
 
   // Handles changes to the name input field
   const handleChange = (event) => {
@@ -62,7 +62,8 @@ const PizzaFormName = () => {
               padding: "10px 40px",
               border: "none",
               cursor: validName ? "pointer" : "not-allowed",
-              marginTop: "24px"
+              marginTop: "24px",
+              opacity: validName ? 1 : 0.5
             }} disabled={!validName}>
               İlerle
             </button>
