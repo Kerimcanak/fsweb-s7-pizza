@@ -82,3 +82,15 @@ export default PizzaFormName;
 // Note: The form submission is prevented by default and the handleSubmit function is called when the form is submitted.
 // Note: The code is commented to provide clarity and understanding.
 
+
+// Create another component named "HelloName" that takes name from the upper function and returns "Merhaba, {name}!"
+const HelloName = ({ name }) => {
+  return (
+    <div style={{ transform: 'translate(-50%, -50%)', position: 'absolute', top: '50%', left: '50%' }}>
+      Merhaba, {name}!
+    </div>
+  );
+};
+
+export { HelloName };
+
