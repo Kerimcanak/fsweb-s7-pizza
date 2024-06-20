@@ -11,7 +11,7 @@ const Navbar = () => {
     display: 'flex',
     listStyle: 'none',
     padding: 0,
-    transform: 'translate(20px, 20px)', // Move the list 20px to the right and 20px down
+    transform: 'translate(20px, 170px)', // Move the list 20px to the right and 20px down
   };
 
   return (
