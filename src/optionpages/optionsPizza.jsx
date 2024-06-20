@@ -1,8 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import food1 from './food-1.png';
 import food2 from './food-2.png';
 
 const OptionsPizza = () => {
+    const history = useHistory();
+
+    const handleClick = () => {
+        history.push('/success');
+    };
+
     return (
         <div>
             <div style={{ transform: 'scale(2, 2) translate(-30px, 0px)' }}>
@@ -44,10 +51,15 @@ const OptionsPizza = () => {
                     <option value="mantarlı">Mantarlı</option>
                     <option value="mısırlı">Mısırlı</option>
                 </select>
-                <img id="toppingsImage" src={food2} alt="Mantarlı" style={{ width: '80px', transform: 'translate(30px, 20px)' }} />
+                <img id="toppingsImage" src={food2} alt="Mantarlı" style={{ width: '80px', transform: 'translate(30px, 20px)' }}/>
             </div>
+            <button className="successButton" onClick={handleClick}
+            style={{backgroundColor: '#fdc913', transform: 'scale(1, 1) translate(-50%, 320%)'}}>
+                Sipariş Ver!
+            </button>
         </div>
     );
 };
 
 export default OptionsPizza;
+
