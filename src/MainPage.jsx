@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Header from './assets/homePage/header';
 import homeBanner from './assets/homePage/home-banner.png';
+import Navbar from './assets/iterasyon2/NavBar';
+import Footer from './assets/iterasyon2/Footer';
+import Copyright from './assets/iterasyon2/Copyright';
 
 function MainPage() {
   const [count, setCount] = useState(0);
@@ -51,6 +54,10 @@ function MainPage() {
           </button>
         </div>
       </div>
+      <Navbar />
+      <div style={{ height: '600px', backgroundColor: '#faf7f2' }} />
+      <Footer />
+      <Copyright />
     </div>
   );
 }

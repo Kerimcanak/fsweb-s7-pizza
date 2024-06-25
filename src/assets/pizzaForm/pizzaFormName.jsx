@@ -13,6 +13,9 @@ const PizzaFormName = () => {
 
   const onSubmit = async (data) => {
     try {
+      if (data.name.length < 3) {
+        throw new Error('İsim en az üç harften oluşturulmalıdır');
+      }
       await axios.post('https://reqres.in/api/pizzas', data);
       const updatedUser = { ...User, ...data };
       localStorage.setItem('user', JSON.stringify(updatedUser));
@@ -26,8 +29,8 @@ const PizzaFormName = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>
         İsim:
-        <input type="text" {...register('name', { required: true })} />
-        {errors.name && <span>This field is required</span>}
+        <input type="text" {...register('name', { required: true, minLength: 3 })} />
+        {errors.name && <span>İsim en az üç harften oluşturulmalıdır</span>}
       </label>
       <button type="submit">Submit</button>
     </form>
