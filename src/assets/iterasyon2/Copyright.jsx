@@ -15,7 +15,7 @@ function Footer() {
             }}
         >
         
-            <p style={{textAlign: 'left', paddingLeft: '40px', paddingTop: '20px', fontFamily: 'Roboto Condensed', fontSize: '12px', margin: 0, color:"#bababa"}}>
+            <p style={{textAlign: 'left', paddingLeft: '130px', paddingTop: '20px', fontFamily: 'Roboto Condensed', fontSize: '12px', margin: 0, color:"#bababa"}}>
                 &copy; Teknolojik Yemekler. <FaTwitter style={{color: 'white', marginLeft: '1100px', fontSize: '17px'}} />
                 
             </p> 

@@ -5,6 +5,9 @@ import homeBanner from './assets/homePage/home-banner.png';
 import Navbar from './assets/iterasyon2/NavBar';
 import Footer from './assets/iterasyon2/Footer';
 import Copyright from './assets/iterasyon2/Copyright';
+import kart1 from './assets/iterasyon2/kart-1.png';
+import kart2 from './assets/iterasyon2/kart-2.png';
+import kart3 from './assets/iterasyon2/kart-3.png';
 
 function MainPage() {
   const [count, setCount] = useState(0);
@@ -55,7 +58,20 @@ function MainPage() {
         </div>
       </div>
       <Navbar />
-      <div style={{ height: '600px', backgroundColor: '#faf7f2' }} />
+      <div style={{ height: '600px', backgroundColor: '#faf7f2' }} >
+
+        {/* kartlar */}
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+      <img src={kart1} alt="kart" style={{ height: '400px', borderRadius: '20px', marginTop: '50px', marginLeft: '270px' }} />
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <img src={kart2} alt="kart" style={{ height: '200px', borderRadius: '20px', marginTop: '50px', marginLeft: '10px' }} />
+      <img src={kart3} alt="kart" style={{ height: '200px', borderRadius: '20px', marginTop: '10px', marginLeft: '10px' }} />
+      </div>
+      </div>
+
+      {/* yemekler */}
+      
+      </div>
       <Footer />
       <Copyright />
     </div>
