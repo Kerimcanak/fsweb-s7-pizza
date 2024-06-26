@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function Formİcerik() {
-    const pizzaPrice = 85.5;
+    const [pizzaPrice, setPizzaPrice] = useState(85.5);
     const pizzaToppings = [
         'Pepperoni',
         'Mozzarella',
@@ -26,7 +26,6 @@ function Formİcerik() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [doughPrice, setDoughPrice] = useState(0);
-    const [extraToppingsPrice, setExtraToppingsPrice] = useState('');
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
@@ -54,7 +53,15 @@ function Formİcerik() {
         }
     }, [selectedDough]);
 
-
+    const handleCheckboxChange = (event) => {
+        if (event.target.checked) {
+            //add + 5 to pizza price
+            setPizzaPrice(pizzaPrice + 5);
+        } else {
+            //subtract - 5 from pizza price
+            setPizzaPrice(pizzaPrice - 5);
+        }
+    };
 
 
     return (
@@ -70,9 +77,9 @@ function Formİcerik() {
                     <h2>Boyut Seç</h2>
                 <div>
                 <ButtonGroup>
-                    <Button color="primary" onClick={() => setSelectedOption(10)} active={selectedOption === 10}>S</Button>
-                    <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 20}>M</Button>
-                    <Button color="primary" onClick={() => setSelectedOption(30)} active={selectedOption === 30}>L</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(0)} active={selectedOption === 10}>S</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(10)} active={selectedOption === 20}>M</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 30}>L</Button>
                 </ButtonGroup>
                 <p style={{ visibility: 'hidden' }}>Selected: {selectedOption}</p>
                 </div>
@@ -102,11 +109,12 @@ function Formİcerik() {
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 {pizzaToppings.map((topping, index) => (
                     <FormGroup check key={index}>
-                        <Input type="checkbox" />
+                        <Input type="checkbox" onChange={(event) => handleCheckboxChange(event, topping)} />
                         <Label check>{topping}</Label>
                     </FormGroup>
                 ))}
             </div>
+
 
 
 
@@ -151,7 +159,7 @@ function Formİcerik() {
                     Tutar
                 </CardTitle>
                 <CardText>
-                    {(quantity * pizzaPrice + doughPrice + selectedOption + (extraToppingsPrice.toFixed(0)))}₺
+                    {(quantity * pizzaPrice + doughPrice + selectedOption)}₺
                 </CardText>
             </Card>
 
