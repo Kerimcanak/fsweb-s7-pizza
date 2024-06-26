@@ -9,26 +9,15 @@ import kart2 from './assets/iterasyon2/kart-2.png';
 import kart3 from './assets/iterasyon2/kart-3.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, CardImg, CardImgOverlay, CardTitle, CardText, ButtonGroup, Button, CardBody, CardSubtitle } from 'reactstrap';
+import food1 from './assets/iterasyon2/images/food-1.png';
+import food2 from './assets/iterasyon2/images/food-2.png';
+import food3 from './assets/iterasyon2/images/food-3.png';
+
+
 
 
 function MainPage() {
-  const [count, setCount] = useState(0);
-  const animationRef = useRef(null); // Reference to the animation element
 
-  const handleClick = () => {
-    // Play the animation
-    document.body.classList.add('animate-out'); // Add the animation class to the body element
-  
-    // After the animation is complete, navigate to the order-pizza page
-    setTimeout(() => {
-      window.location.href = '/order-pizza/main'; // Use window.location.href to navigate
-    }, 1000); // Adjust the animation duration as needed
-  };
-
-  useEffect(() => {
-    // Add a click event listener to the animation element
-    animationRef.current.addEventListener('animationend', () => {});
-  }, []);
 
   return (
     <div>
@@ -55,13 +44,13 @@ function MainPage() {
           </h2>
         </div>
         <div style={{ marginTop: '20px' }}>
-          <button style={{backgroundColor: 'yellow', border: 'none', borderRadius: '10px', padding: '10px 20px', fontSize: '24px', fontWeight: 'bold', cursor: 'pointer'}} onClick={handleClick} ref={animationRef}>
+          <button style={{backgroundColor: 'yellow', border: 'none', borderRadius: '10px', padding: '10px 20px', fontSize: '24px', fontWeight: 'bold', cursor: 'pointer'}}>
             <span className="button-text-large">ACIKTIM</span>
           </button>
         </div>
       </div>
       <Navbar />
-      <div className="içerik" style={{ height: '1200px', backgroundColor: '#faf7f2' }} >
+      <div className="içerik" style={{ height: '1300px', backgroundColor: '#faf7f2' }} >
       <div style={{ height: '40px', backgroundColor: '#faf7f2' }}></div>
 
         {/* kartlar */}
@@ -200,11 +189,11 @@ function MainPage() {
       }}    >
       <img
         alt="Sample"
-        src="https://picsum.photos/300/200"
+        src={food1}
       />
       <CardBody>
         <CardTitle tag="h5">
-          Card title
+          Terminal Pizza
         </CardTitle>
         <CardSubtitle
           className="mb-2 text-muted"
@@ -226,11 +215,11 @@ function MainPage() {
       }}    >
       <img
         alt="Sample"
-        src="https://picsum.photos/300/200"
+        src={food2}
       />
       <CardBody>
         <CardTitle tag="h5">
-          Card title
+          Position Absolute Acı Pizza
         </CardTitle>
         <CardSubtitle
           className="mb-2 text-muted"
@@ -252,11 +241,11 @@ function MainPage() {
       }}    >
       <img
         alt="Sample"
-        src="https://picsum.photos/300/200"
+        src={food3}
       />
       <CardBody>
         <CardTitle tag="h5">
-          Card title
+          useEffect Tavuklu Burger
         </CardTitle>
         <CardSubtitle
           className="mb-2 text-muted"
