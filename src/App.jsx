@@ -7,11 +7,13 @@ import OrderPizzaComplete from './orderPizzaComplete';
 import Success from './success';
 import OptionsPizza from './optionpages/optionsPizza';
 import OptionsBurger from './optionpages/optionsBurger';
+import OrderPizzaITwo from './assets/iterasyon2/pages/OrderPizza.jsx';
 
 function App() {
   return (
     <Router>
       <Route exact path="/" component={MainPage} />
+      <Route path="/orderpizza" component={OrderPizzaITwo} />
       <Route path="/order-pizza/main" component={OrderPizza} />
       <Route path="/order-pizza/options" component={OrderPizzaOptions} />
       <Route path="/order-pizza/complete" component={OrderPizzaComplete} />
