@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Button, Dropdown, DropdownMenu, DropdownToggle, DropdownItem, FormGroup, Label, Input, Form, Card, CardTitle, FormFeedback, FormText, ButtonGroup, CardText } from "reactstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function Formİcerik() {
-    const pizzaPrice = 85.50;
+    const pizzaPrice = 85.5;
     const pizzaToppings = [
         'Pepperoni',
         'Mozzarella',
@@ -24,7 +26,7 @@ function Formİcerik() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [doughPrice, setDoughPrice] = useState(0);
-    const [extraToppingsPrice, setExtraToppingsPrice] = useState(0);
+    const [extraToppingsPrice, setExtraToppingsPrice] = useState('');
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
@@ -44,13 +46,15 @@ function Formİcerik() {
 
     React.useEffect(() => {
         if (selectedDough === 'İnce') {
-            setDoughPrice(10);
+            setDoughPrice(0);
         } else if (selectedDough === 'Orta') {
-            setDoughPrice(20);
+            setDoughPrice(10);
         } else if (selectedDough === 'Kalın') {
-            setDoughPrice(30);
+            setDoughPrice(20);
         }
     }, [selectedDough]);
+
+
 
 
     return (
@@ -61,7 +65,7 @@ function Formİcerik() {
             }}
         >
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: "row", alignItems: 'center' }}>
                 <div>
                     <h2>Boyut Seç</h2>
                 <div>
@@ -70,7 +74,7 @@ function Formİcerik() {
                     <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 20}>M</Button>
                     <Button color="primary" onClick={() => setSelectedOption(30)} active={selectedOption === 30}>L</Button>
                 </ButtonGroup>
-                <p>Selected: {selectedOption}</p>
+                <p style={{ visibility: 'hidden' }}>Selected: {selectedOption}</p>
                 </div>
 
                 </div>
@@ -98,27 +102,15 @@ function Formİcerik() {
             <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 {pizzaToppings.map((topping, index) => (
                     <FormGroup check key={index}>
-                        <Input 
-                            type="checkbox"
-                            onChange={(event) => {
-                                const selected = event.target.checked;
-                                setExtraToppingsPrice(prevPrice => prevPrice + (selected ? 5 : -5));
-                            }}
-                            max={10}
-                            onClick={(event) => {
-                                const selected = event.target.checked;
-                                if (extraToppingsPrice > 10 && !selected) {
-                                    setExtraToppingsPrice(prevPrice => prevPrice - 5);
-                                }
-                            }}
-                        />
-                        {' '}
-                        <Label check>
-                        {`${topping}`}
-                        </Label>
+                        <Input type="checkbox" />
+                        <Label check>{topping}</Label>
                     </FormGroup>
                 ))}
             </div>
+
+
+
+
         </Card>
 
 
@@ -150,15 +142,17 @@ function Formİcerik() {
                 </button>
             </div>
 
+            
+            </Card>
+
             {/* TUTAR/PRICE */}
             <Card>
                 <CardTitle tag="h5">
                     Tutar
                 </CardTitle>
                 <CardText>
-                    {(quantity * pizzaPrice + doughPrice + selectedOption) + extraToppingsPrice}₺
+                    {(quantity * pizzaPrice + doughPrice + selectedOption + (extraToppingsPrice.toFixed(0)))}₺
                 </CardText>
-            </Card>
             </Card>
 
         
@@ -167,3 +161,4 @@ function Formİcerik() {
 }
 
 export default Formİcerik
+
