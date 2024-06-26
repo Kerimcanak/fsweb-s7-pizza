@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Dropdown, DropdownMenu, DropdownToggle, DropdownItem, FormGroup, Label, Input, Form, Card, CardTitle, FormFeedback, FormText, ButtonGroup, CardText } from "reactstrap";
+import { Button, Dropdown, DropdownMenu, DropdownToggle, DropdownItem, FormGroup, Label, Input, Form, Card, CardTitle, FormFeedback, FormText, ButtonGroup, CardText, CardHeader, CardFooter, CardBody } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -26,6 +26,7 @@ function Formİcerik() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const [doughPrice, setDoughPrice] = useState(0);
+    const [optionPrice, setOptionPrice] = useState(0);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
@@ -57,9 +58,13 @@ function Formİcerik() {
         if (event.target.checked) {
             //add + 5 to pizza price
             setPizzaPrice(pizzaPrice + 5);
+            //add+5 to option price
+            setOptionPrice(optionPrice + 5);
         } else {
             //subtract - 5 from pizza price
             setPizzaPrice(pizzaPrice - 5);
+            //subtract -5 from option price
+            setOptionPrice(optionPrice - 5);
         }
     };
 
@@ -68,18 +73,26 @@ function Formİcerik() {
         <div
             style={{
                 backgroundColor: "white",
-                height: "100vh"
+                height: "150vh"
             }}
         >
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <div style={{ display: 'flex', flexDirection: "row", alignItems: 'center' }}>
-                <div>
+
+
+
+
+
+
+            <div id="form" style={{ display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: 'center' }}>
+            <div id="boyut" style={{ display: 'flex', flexDirection: "row", alignItems: 'center', justifyContent: 'center'}}>
+                <div style={{ marginRight: '80px', marginTop: '45px' }}>
                     <h2>Boyut Seç</h2>
                 <div>
                 <ButtonGroup>
-                    <Button color="primary" onClick={() => setSelectedOption(0)} active={selectedOption === 10}>S</Button>
-                    <Button color="primary" onClick={() => setSelectedOption(10)} active={selectedOption === 20}>M</Button>
-                    <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 30}>L</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(0)} active={selectedOption === 0}>S</Button>
+                    </ButtonGroup>
+                    <Button color="primary" onClick={() => setSelectedOption(10)} active={selectedOption === 10}>M</Button>
+                    <ButtonGroup>
+                    <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 20}>L</Button>
                 </ButtonGroup>
                 <p style={{ visibility: 'hidden' }}>Selected: {selectedOption}</p>
                 </div>
@@ -87,7 +100,7 @@ function Formİcerik() {
                 </div>
                     {' '}
                 </div>
-                <div>
+                <div id="hamur">
                 <h2>Hamur seç</h2>
                     <Dropdown isOpen={dropdownOpen} toggle={toggle}>
                         <DropdownToggle caret>
@@ -100,33 +113,40 @@ function Formİcerik() {
                         </DropdownMenu>
                     </Dropdown>
                 </div>
-            </div>
-            <Card style={{ border: 'none', width:"300px" }}>
+                </div>
+            
+
+
+
+
+
+
+            <Card style={{ border: 'none', width:"200px", gap: '10px', marginLeft: '550px' }}>
             <CardTitle tag="h5">
                 Ek malzemeler
             </CardTitle>
 
-            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridGap: '20px' }}>
                 {pizzaToppings.map((topping, index) => (
-                    <FormGroup check key={index}>
+                    <FormGroup check key={index} style={{ gridRow: `${Math.floor(index / 3) + 1}` }}>
                         <Input type="checkbox" onChange={(event) => handleCheckboxChange(event, topping)} />
                         <Label check>{topping}</Label>
                     </FormGroup>
                 ))}
             </div>
+            </Card>
 
 
 
 
-
-        </Card>
-
+        
 
 
 
-            <FormGroup>
-                <Label for="exampleEmail">
-                Input without validation
+
+            <FormGroup style={{ width: '400px',  margin: "auto", marginTop: "40px" }}>
+                <Label for="notes">
+                
                 </Label>
                 <Input />
                 <FormFeedback>
@@ -137,8 +157,14 @@ function Formİcerik() {
                 </FormText>
             </FormGroup>
             <Card style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', border: 'none', width:"100px" }}>
+            </Card>
 
 
+                {/* 👇️ basic horizontal line */}
+                <hr style={{ margin: "auto", width: '800px' }}/>
+
+
+            <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '40px' }}>
             {/* ADET/QUANTITY */}
             <div style={{ marginLeft: "500px", display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                 <button onClick={() => decreaseValue()}>
@@ -149,19 +175,29 @@ function Formİcerik() {
                     +
                 </button>
             </div>
-
-            
-            </Card>
-
             {/* TUTAR/PRICE */}
-            <Card>
-                <CardTitle tag="h5">
-                    Tutar
+            <Card
+                    className="my-2"
+                    style={{
+                        width: '18rem'
+                    }}
+                    >
+                <CardBody>
+                <CardTitle tag="h4">
+                    Sipariş Toplamı
                 </CardTitle>
-                <CardText>
-                    {(quantity * pizzaPrice + doughPrice + selectedOption)}₺
-                </CardText>
-            </Card>
+                   <CardTitle className="mb-2 text-muted" tag="h5" style={{color: '#c20608'}}>
+                    Seçimler: {(quantity * (optionPrice + doughPrice + selectedOption))}₺
+                    </CardTitle>
+                    <CardTitle tag="h5" style={{color: '#c20608'}}>
+                    Toplam: {(quantity * pizzaPrice + doughPrice + selectedOption)}₺
+                    </CardTitle>
+                </CardBody>
+                <Button>Sipariş ver!</Button>
+                </Card>
+            </div>
+
+
 
         
         </div>
