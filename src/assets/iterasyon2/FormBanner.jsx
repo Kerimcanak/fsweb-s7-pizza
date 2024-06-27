@@ -8,7 +8,7 @@ function FormBanner() {
             style={{
                 backgroundColor: "#FAF7F2",
                 backgroundSize: "cover",
-                height: "100vh",
+                height: "70vh",
                 width: "100vw",
                 margin: 0,
                 padding: 0,

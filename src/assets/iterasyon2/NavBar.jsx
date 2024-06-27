@@ -15,13 +15,13 @@ const Navbar = () => (
       <Router>
         <li>
         <img src={IconPizza} alt="Pizza"/>
-          <a href="/order-pizza/complete/pizza">Pizza</a>
+          <a href="/orderpizza">Pizza</a>
         </li>
       </Router>
       <Router>
         <li>
         <img src={IconBurger} alt="Burger"/>
-          <a href="/order-pizza/complete/burger">Burger</a>
+          Burger
         </li>
       </Router>
       <li><img src={IconKızartma} alt="Kızartma"/> Kızartma</li>

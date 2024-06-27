@@ -44,13 +44,16 @@ function MainPage() {
           </h2>
         </div>
         <div style={{ marginTop: '20px' }}>
-          <button style={{backgroundColor: 'yellow', border: 'none', borderRadius: '10px', padding: '10px 20px', fontSize: '24px', fontWeight: 'bold', cursor: 'pointer'}}>
+          <Button 
+          href="#içerik"
+          tag="a" 
+          style={{backgroundColor: 'yellow', border: 'none', borderRadius: '10px', padding: '10px 20px', fontSize: '24px', fontWeight: 'bold', cursor: 'pointer'}}>
             <span className="button-text-large">ACIKTIM</span>
-          </button>
+          </Button>
         </div>
       </div>
       <Navbar />
-      <div className="içerik" style={{ height: '1300px', backgroundColor: '#faf7f2' }} >
+      <div id="içerik" style={{ height: '1300px', backgroundColor: '#faf7f2' }} >
       <div style={{ height: '40px', backgroundColor: '#faf7f2' }}></div>
 
         {/* kartlar */}

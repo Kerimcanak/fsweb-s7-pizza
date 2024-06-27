@@ -1,5 +1,8 @@
 import React from 'react';
-import { Card, CardBody, CardFooter, CardHeader, CardText, CardTitle } from 'reactstrap';
+import { Card, CardBody, CardFooter, CardHeader, CardText, CardTitle, Navbar, NavbarBrand } from 'reactstrap';
+import logo from './assets/pizzaForm/logo.svg';
+import Footer from '../src/assets/iterasyon2/Footer';
+import Copyright from '../src/assets/iterasyon2/Copyright';
 
 const Success = ({ location }) => {
   const { state } = location;
@@ -8,26 +11,58 @@ const Success = ({ location }) => {
 
   return (
     <div>
-      <Card
-        className="my-2"
+    
+    <Navbar
+    className="fixed-top"
+    style={{
+      height: 100,
+      backgroundColor: "#C20608",
+      marginBottom: "-100px"
+    }}
+  >
+    <NavbarBrand href="/" className="position-absolute top-50 start-50 translate-middle">
+      <img
+        alt="logo"
+        src={logo}
         style={{
-          width: '18rem'
+          height: 40,
+          width: 290,
+          
+        }}
+      />
+    </NavbarBrand>
+  </Navbar>
+
+
+
+      <div style={{ backgroundColor: '#c20608', /*as wide as screen*/   width: '100vw',
+  height: '55vh', marginTop: '40px' }}>
+      <Card
+        className="m-auto align-self-center"
+        style={{
+          width: '18rem',
+          //position center
+          border: 'none',
+          backgroundColor: '#c20608',
+          //text color white
+          color: 'white',
+          
         }}
       >
         <CardHeader>
           Order Details
         </CardHeader>
         <CardBody>
-          <CardTitle tag="h5">
-            Siprariş Notu: {note}
-          </CardTitle>
+          <CardText>
+            Sipariş Notu: {note || 'Yok.'}
+          </CardText>
           <CardText>
             Ek Malzemeler: {toppings.map((topping) => (
               <span key={topping}>{topping}, </span>
             ))}
           </CardText>
           <CardText>
-            Selected Option: {selectedOption}
+            Boyut: {selectedOption}
           </CardText>
           <CardText>
             Price: ${price.toFixed(2)}
@@ -37,6 +72,9 @@ const Success = ({ location }) => {
           Thank you for your order!
         </CardFooter>
       </Card>
+      </div>
+      <Footer/>
+      <Copyright/>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { Button, Dropdown, DropdownMenu, DropdownToggle, DropdownItem, FormGroup
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Link  } from 'react-router-dom';
 import Success from "../../success";
+import { Axios } from "axios";
 
 
 function Formİcerik() {
@@ -87,10 +88,36 @@ function Formİcerik() {
         }));
     }
 
+    
+    //pizza boyutu metni
+    let selectedOptionText = 'Small';
+    if (selectedOption === 0) {
+        selectedOptionText = 'Small';
+    } else if (selectedOption === 10) {
+        selectedOptionText = 'Medium';
+    } else if (selectedOption === 20) {
+        selectedOptionText = 'Big';
+    }
 
 
+    const sendToAxios = () => {
 
+        const dataToSend = { 
+            note: note,
+            toppings: toppingSelected,
+            selectedOption: selectedOptionText,
+            price: quantity * (pizzaPrice + doughPrice + selectedOption)
+        };
 
+        Axios.post('http://localhost:3001/pizza', dataToSend)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+
+    }
 
 
 
@@ -233,12 +260,12 @@ function Formİcerik() {
                         dataToSend: {
                             note: note,
                             toppings: toppingSelected,
-                            selectedOption: selectedOption,
+                            selectedOption: selectedOptionText,
                             price: quantity * (pizzaPrice + doughPrice + selectedOption)
                         }
                     }
                 }}>
-                    <Button>Sipariş ver!</Button>
+                    <Button onclick={sendToAxios}>Sipariş ver!</Button>
                 </Link>
                 </Card>
             </div>
