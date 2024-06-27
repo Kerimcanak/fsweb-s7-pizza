@@ -6,6 +6,9 @@ import Success from "../../success";
 
 
 function Formİcerik() {
+
+
+    
     const [pizzaPrice, setPizzaPrice] = useState(85.5);
     const pizzaToppings = [
         'Pepperoni',
@@ -29,6 +32,8 @@ function Formİcerik() {
     const [quantity, setQuantity] = useState(1);
     const [doughPrice, setDoughPrice] = useState(0);
     const [optionPrice, setOptionPrice] = useState(0);
+    const [note, setNote] = useState('');
+    const [toppingSelected, setToppingSelected] = useState([]);
 
     const [resultPrice, setResultPrice] = useState(0);
     React.useEffect(() => {
@@ -61,19 +66,35 @@ function Formİcerik() {
         }
     }, [selectedDough]);
 
-    const handleCheckboxChange = (event) => {
+    const handleCheckboxChange = (event, topping) => {
         if (event.target.checked) {
-            //add + 5 to pizza price
             setPizzaPrice(pizzaPrice + 5);
-            //add+5 to option price
             setOptionPrice(optionPrice + 5);
+            setToppingSelected(prevSelected => [...prevSelected, topping]);
         } else {
-            //subtract - 5 from pizza price
             setPizzaPrice(pizzaPrice - 5);
-            //subtract -5 from option price
             setOptionPrice(optionPrice - 5);
+            setToppingSelected(prevSelected => prevSelected.filter(selected => selected !== topping));
         }
-    };
+    }
+
+
+
+    // Export the checked toppings' texts in array "toppingSelected"
+    const exportToppings = () => {
+        return toppingSelected.map((selectedTopping) => ({
+            text: selectedTopping
+        }));
+    }
+
+
+
+
+
+
+
+
+
 
 
     return (
@@ -86,6 +107,9 @@ function Formİcerik() {
 
 
 
+        
+
+
 
 
 
@@ -95,11 +119,11 @@ function Formİcerik() {
                     <h2>Boyut Seç</h2>
                 <div>
                 <ButtonGroup>
-                    <Button color="primary" onClick={() => setSelectedOption(0)} active={selectedOption === 0}>S</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(0)} active={selectedOption === 0}>Küçük</Button>
                     </ButtonGroup>
-                    <Button color="primary" onClick={() => setSelectedOption(10)} active={selectedOption === 10}>M</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(10)} active={selectedOption === 10}>Büyük</Button>
                     <ButtonGroup>
-                    <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 20}>L</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 20}>Orta</Button>
                 </ButtonGroup>
                 <p style={{ visibility: 'hidden' }}>Selected: {selectedOption}</p>
                 </div>
@@ -135,10 +159,13 @@ function Formİcerik() {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gridGap: '20px' }}>
                 {pizzaToppings.map((topping, index) => (
+                
+
                     <FormGroup check key={index} style={{ gridRow: `${Math.floor(index / 3) + 1}` }}>
                         <Input type="checkbox" onChange={(event) => handleCheckboxChange(event, topping)} />
                         <Label check>{topping}</Label>
                     </FormGroup>
+                    
                 ))}
             </div>
             </Card>
@@ -153,9 +180,9 @@ function Formİcerik() {
 
             <FormGroup style={{ width: '400px',  margin: "auto", marginTop: "40px" }}>
                 <Label for="notes">
-                
+                Notlar
                 </Label>
-                <Input />
+                <Input type="text" onChange={(event) => setNote(event.target.value)}/>
                 <FormFeedback>
                 You will not be able to see this
                 </FormFeedback>
@@ -203,7 +230,12 @@ function Formİcerik() {
                 <Link to={{
                     pathname: "/success", 
                     state: {
-                        totalPrice: quantity * (pizzaPrice + doughPrice + selectedOption)
+                        dataToSend: {
+                            note: note,
+                            toppings: toppingSelected,
+                            selectedOption: selectedOption,
+                            price: quantity * (pizzaPrice + doughPrice + selectedOption)
+                        }
                     }
                 }}>
                     <Button>Sipariş ver!</Button>

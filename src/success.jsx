@@ -3,7 +3,8 @@ import { Card, CardBody, CardFooter, CardHeader, CardText, CardTitle } from 'rea
 
 const Success = ({ location }) => {
   const { state } = location;
-  const { totalPrice } = state || {};
+  const { dataToSend } = state || {};
+  const { note, toppings, selectedOption, price } = dataToSend || {};
 
   return (
     <div>
@@ -14,18 +15,26 @@ const Success = ({ location }) => {
         }}
       >
         <CardHeader>
-          Total Price
+          Order Details
         </CardHeader>
         <CardBody>
           <CardTitle tag="h5">
-            {totalPrice && `$${totalPrice.toFixed(2)}`}
+            Siprariş Notu: {note}
           </CardTitle>
           <CardText>
-            Thanks for your order!
+            Ek Malzemeler: {toppings.map((topping) => (
+              <span key={topping}>{topping}, </span>
+            ))}
+          </CardText>
+          <CardText>
+            Selected Option: {selectedOption}
+          </CardText>
+          <CardText>
+            Price: ${price.toFixed(2)}
           </CardText>
         </CardBody>
         <CardFooter>
-          Footer
+          Thank you for your order!
         </CardFooter>
       </Card>
     </div>
