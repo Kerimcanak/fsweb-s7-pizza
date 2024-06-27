@@ -14,12 +14,13 @@ function App() {
     <Router>
       <Route exact path="/" component={MainPage} />
       <Route path="/orderpizza" component={OrderPizzaITwo} />
+      <Route path="/success" component={Success} />
+
       <Route path="/order-pizza/main" component={OrderPizza} />
       <Route path="/order-pizza/options" component={OrderPizzaOptions} />
       <Route path="/order-pizza/complete" component={OrderPizzaComplete} />
       <Route path="/order-pizza/complete/pizza" component={OptionsPizza} />
       <Route path="/order-pizza/complete/burger" component={OptionsBurger} />
-      <Route path="/success" component={Success} />
     </Router>
   );
 }

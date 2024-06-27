@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button, Dropdown, DropdownMenu, DropdownToggle, DropdownItem, FormGroup, Label, Input, Form, Card, CardTitle, FormFeedback, FormText, ButtonGroup, CardText, CardHeader, CardFooter, CardBody } from "reactstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Link  } from 'react-router-dom';
+import Success from "../../success";
 
 
 function Formİcerik() {
@@ -27,6 +29,11 @@ function Formİcerik() {
     const [quantity, setQuantity] = useState(1);
     const [doughPrice, setDoughPrice] = useState(0);
     const [optionPrice, setOptionPrice] = useState(0);
+
+    const [resultPrice, setResultPrice] = useState(0);
+    React.useEffect(() => {
+        setResultPrice(quantity * pizzaPrice + doughPrice + optionPrice);
+    }, [quantity, pizzaPrice, doughPrice, optionPrice]);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
 
@@ -193,11 +200,19 @@ function Formİcerik() {
                     Toplam: {(quantity * pizzaPrice + doughPrice + selectedOption)}₺
                     </CardTitle>
                 </CardBody>
-                <Button>Sipariş ver!</Button>
+                <Link to={{
+                    pathname: "/success", 
+                    state: {
+                        totalPrice: quantity * (pizzaPrice + doughPrice + selectedOption)
+                    }
+                }}>
+                    <Button>Sipariş ver!</Button>
+                </Link>
                 </Card>
             </div>
 
 
+  
 
         
         </div>

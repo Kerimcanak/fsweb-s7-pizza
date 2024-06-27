@@ -7,6 +7,7 @@ import Formİcerik from "../Formİcerik.jsx";
 import Footer from '../Footer';
 import Copyright from '../Copyright';
 
+
 function OrderPizzaITwo() {
     return (
         <>
