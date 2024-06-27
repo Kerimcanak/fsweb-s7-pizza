@@ -27,7 +27,7 @@ function Formİcerik() {
         'Anchovy',
         'Pesto'
     ]
-    const [selectedDough, setSelectedDough] = useState('');
+    const [selectedDough, setSelectedDough] = useState('İnce');
     const [selectedOption, setSelectedOption] = useState('');
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [quantity, setQuantity] = useState(1);
@@ -106,7 +106,9 @@ function Formİcerik() {
             note: note,
             toppings: toppingSelected,
             selectedOption: selectedOptionText,
-            price: quantity * (pizzaPrice + doughPrice + selectedOption)
+            price: quantity * (pizzaPrice + doughPrice + selectedOption),
+            quantity: quantity,
+            selectedDough: selectedDough
         };
 
         Axios.post('http://localhost:3001/pizza', dataToSend)
@@ -128,7 +130,8 @@ function Formİcerik() {
         <div
             style={{
                 backgroundColor: "white",
-                height: "150vh"
+                height: "120vh",
+                marginTop: "100px"
             }}
         >
 
@@ -148,9 +151,9 @@ function Formİcerik() {
                 <ButtonGroup>
                     <Button color="primary" onClick={() => setSelectedOption(0)} active={selectedOption === 0}>Küçük</Button>
                     </ButtonGroup>
-                    <Button color="primary" onClick={() => setSelectedOption(10)} active={selectedOption === 10}>Büyük</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(10)} active={selectedOption === 10}>Orta</Button>
                     <ButtonGroup>
-                    <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 20}>Orta</Button>
+                    <Button color="primary" onClick={() => setSelectedOption(20)} active={selectedOption === 20}>Büyük</Button>
                 </ButtonGroup>
                 <p style={{ visibility: 'hidden' }}>Selected: {selectedOption}</p>
                 </div>
@@ -207,14 +210,14 @@ function Formİcerik() {
 
             <FormGroup style={{ width: '400px',  margin: "auto", marginTop: "40px" }}>
                 <Label for="notes">
-                Notlar
+                Sipariş notu
                 </Label>
                 <Input type="text" onChange={(event) => setNote(event.target.value)}/>
                 <FormFeedback>
                 You will not be able to see this
                 </FormFeedback>
                 <FormText>
-                Example help text that remains unchanged.
+                Siparişinize eklemek istediğiniz bir not var mı?
                 </FormText>
             </FormGroup>
             <Card style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', border: 'none', width:"100px" }}>
@@ -261,11 +264,13 @@ function Formİcerik() {
                             note: note,
                             toppings: toppingSelected,
                             selectedOption: selectedOptionText,
-                            price: quantity * (pizzaPrice + doughPrice + selectedOption)
+                            price: quantity * (pizzaPrice + doughPrice + selectedOption),
+                            quantity: quantity,
+                            selectedDough: selectedDough
                         }
                     }
                 }}>
-                    <Button onclick={sendToAxios}>Sipariş ver!</Button>
+                    <Button onclick={sendToAxios} style={{backgroundColor: '#c20608', borderColor: '#c20608', width: '287px'}}>Sipariş ver!</Button>
                 </Link>
                 </Card>
             </div>

@@ -47,7 +47,7 @@ function MainPage() {
           <Button 
           href="#içerik"
           tag="a" 
-          style={{backgroundColor: 'yellow', border: 'none', borderRadius: '10px', padding: '10px 20px', fontSize: '24px', fontWeight: 'bold', cursor: 'pointer'}}>
+          style={{backgroundColor: '#fdc913', border: 'none', borderRadius: '10px', padding: '10px 20px', fontSize: '24px', fontWeight: 'bold', cursor: 'pointer'}}>
             <span className="button-text-large">ACIKTIM</span>
           </Button>
         </div>
@@ -69,16 +69,16 @@ function MainPage() {
                 width="100%"
               />
               <CardImgOverlay>
-                <CardTitle tag="h5">
-                  Card Title
+                <CardTitle tag="h5" style={{ fontFamily: 'Quattrocento', fontSize: '36px' }}>
+                  Özel Lezzetus
                 </CardTitle>
                 <CardText>
-                  This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                Position: Absolute Acı Pizza
                 </CardText>
                 <CardText>
-                  <small className="text-muted">
-                    Last updated 3 mins ago
-                  </small>
+                  <Button href="orderpizza" style={{backgroundColor:"white", border: 'none', borderRadius: '20px', padding: '10px 20px', fontWeight: 'bold', cursor: 'pointer'}}>
+                    <span style={{ color: '#c20608' }}>SİPARİŞ VER</span>
+                  </Button>
                 </CardText>
               </CardImgOverlay>
             </Card>
@@ -96,14 +96,16 @@ function MainPage() {
               />
               <CardImgOverlay>
                 <CardTitle tag="h5">
-                  Card Title
+                  Hackathlon Burger Menü
                 </CardTitle>
                 <CardText>
-                  This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+
                 </CardText>
                 <CardText>
                   <small className="text-muted">
-                    Last updated 3 mins ago
+                  <Button href="orderpizza" style={{backgroundColor:"white", border: 'none', borderRadius: '20px', padding: '10px 20px', fontWeight: 'bold', cursor: 'pointer'}}>
+                    <span style={{ color: '#c20608' }}>SİPARİŞ VER</span>
+                  </Button>
                   </small>
                 </CardText>
               </CardImgOverlay>
@@ -121,15 +123,16 @@ function MainPage() {
                 width="100%"
               />
               <CardImgOverlay>
-                <CardTitle tag="h5">
-                  Card Title
+                <CardTitle tag="h5" style={{ color: '#332D2D' }}>
+                  <span style={{ color: '#c20608' }}>ÇOOOOK</span> hızlı <div>npm gibi kurye.</div>
                 </CardTitle>
                 <CardText>
-                  This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
                 </CardText>
                 <CardText>
                   <small className="text-muted">
-                    Last updated 3 mins ago
+                  <Button href="orderpizza" style={{backgroundColor:"white", border: 'none', borderRadius: '20px', padding: '10px 20px', fontWeight: 'bold', cursor: 'pointer'}}>
+                    <span style={{ color: '#c20608' }}>SİPARİŞ VER</span>
+                  </Button>
                   </small>
                 </CardText>
               </CardImgOverlay>
@@ -202,13 +205,13 @@ function MainPage() {
           className="mb-2 text-muted"
           tag="h6"
         >
-          Card subtitle
+          4.9
         </CardSubtitle>
         <CardText>
-          Some quick example text to build on the card title and make up the bulk of the card‘s content.
+          80₺
         </CardText>
         <Button>
-          Button
+          Sipariş ver
         </Button>
         </CardBody>
       </Card>
@@ -228,13 +231,13 @@ function MainPage() {
           className="mb-2 text-muted"
           tag="h6"
         >
-          Card subtitle
+          4.9
         </CardSubtitle>
         <CardText>
-          Some quick example text to build on the card title and make up the bulk of the card‘s content.
+          85.5₺
         </CardText>
         <Button>
-          Button
+          Sipariş ver
         </Button>
         </CardBody>
       </Card>
@@ -254,13 +257,13 @@ function MainPage() {
           className="mb-2 text-muted"
           tag="h6"
         >
-          Card subtitle
+          4.9
         </CardSubtitle>
         <CardText>
-          Some quick example text to build on the card title and make up the bulk of the card‘s content.
+          70₺
         </CardText>
         <Button>
-          Button
+          Sipariş ver
         </Button>
         </CardBody>
       </Card>

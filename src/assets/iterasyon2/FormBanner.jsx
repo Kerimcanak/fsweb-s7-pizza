@@ -18,7 +18,7 @@ function FormBanner() {
             }}
         >
 
-<Card className="border-0" style={{ backgroundColor: "#FAF7F2", }}>
+<Card className="border-0" style={{ backgroundColor: "#FAF7F2", paddingLeft:"300px", paddingRight:"300px" }}>
     <CardImg
       alt="Card image cap"
       src={formbannerimage}
@@ -30,16 +30,19 @@ function FormBanner() {
       top
     />
     <CardBody>
-      <CardTitle tag="h5">
-        Card Title
+     <CardTitle tag="h6" className="text-muted" class="d-flex" style={{paddingLeft:"140px", paddingRight:"140px" }}>
+        Anasayfa - Seçenekler - <span style={{ color: '#c20608' }}>Sipariş Oluştur</span>
       </CardTitle>
-      <CardText>
-        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+      <CardTitle tag="h5" class="d-flex" style={{paddingLeft:"140px", paddingRight:"140px" }}>
+        Position Absolute Acı Pizza
+      </CardTitle>
+      <CardTitle tag="h4" class="d-flex" style={{paddingLeft:"140px", paddingRight:"140px" }}>
+        85.50₺
+      </CardTitle>
+      <CardText class="d-flex justify-content-center" style={{paddingLeft:"140px", paddingRight:"140px" }}>
+      Frontent Dev olarak hala position:absolute kullanryorsan bu çok acı pizza tam sana göre. Piııa. domates, peynir ve genellikle çesitli diger malıenıelerle kaplanmış, daha sonra geleneksel olarak odun ateşinde bir fınnda yüksek sıcaklıkta pişirilen. genellikle yuvarlak, düzleştirilmiş mayalı bugday bazlı hamurdan oluşan İtalya, kökenli lezzetli bir yernektir.. Küçük bir pizzaya bazen pizzetta denir. 
       </CardText>
       <CardText>
-        <small className="text-muted">
-          Last updated 3 mins ago
-        </small>
       </CardText>
     </CardBody>
   </Card>
