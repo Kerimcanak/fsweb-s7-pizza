@@ -42,7 +42,7 @@ const Success = ({ location }) => {
 
 
       <div style={{ backgroundColor: '#c20608', /*as wide as screen*/   width: '100vw',
-  height: '75vh', marginTop: '100px' }}>
+  height: '85vh', marginTop: '100px' }}>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '80px', backgroundColor: '#c20608' }}>
       <Card body style={{border: 'none', backgroundColor: '#c20608', color: 'white'}}>
       <CardText style={{fontFamily: 'Satisfy', fontSize: '26px', display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#fdc913'}}>
